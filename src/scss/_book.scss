@@ -1,0 +1,635 @@
+@use "media";
+@use "utils";
+
+.book {
+  @include utils.blockWrapper;
+  margin-bottom: 10rem;
+
+  &--success {
+    padding-top: 10.4rem;
+  }
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 3.6rem;
+
+    &--success {
+      padding-top: 6rem;
+    }
+  }
+}
+
+.book__content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+
+  .validation-error {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    margin-top: 0.4rem;
+    color: #b9864b;
+  }
+}
+
+.book__heading {
+  text-align: center;
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.072rem;
+  color: #e5e5e5;
+  margin-bottom: 4rem;
+
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.048rem;
+    margin-bottom: 2.4rem;
+    text-align: left;
+    color: white;
+  }
+}
+
+.book__heading-text {
+  margin-bottom: 4rem;
+  text-align: center;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.04rem;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 2.4rem;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.032rem;
+  }
+}
+
+.book__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 70.4rem;
+  margin: 0 auto;
+  width: 100%;
+
+  @include media.breakpoint(mobile) {
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.book__form-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 1.2rem;
+  grid-row-gap: 1.6rem;
+
+  @include media.breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}
+
+.book__form-field {
+  display: flex;
+  flex-direction: column;
+
+  &--fullwidth {
+    grid-column: 1 / -1;
+  }
+}
+
+.book__form-field-label {
+  display: block;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  margin-bottom: 0.4rem;
+
+  @include media.breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    font-family: var(--gilroy);
+    margin-bottom: 0.4rem;
+  }
+}
+
+.book__form-field-input {
+  display: block;
+  width: 100%;
+  height: 4rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  padding: 0 2rem;
+  border-radius: 2rem;
+  background: #fff;
+  color: #212838;
+
+  &::placeholder {
+    color: rgba(#212838, 0.5);
+  }
+
+  @include media.breakpoint(mobile) {
+    height: 3.2rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
+
+.book__form-remark {
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-top: 2.4rem;
+  font-family: var(--gilroy);
+  @include media.breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    margin-top: 1.6rem;
+  }
+}
+
+.book__form-policy {
+  max-width: 44rem;
+  align-self: center;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  font-family: var(--gilroy);
+  margin-top: 1.6rem;
+  text-align: center;
+  @include media.breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    max-width: 24rem;
+  }
+}
+
+.book__form-submit {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: white;
+  padding: 1.6rem 4.8rem;
+  border-radius: 3rem;
+  border: 1px solid rgba(102, 49, 57, 0.8);
+  background: #b9864b;
+  margin-top: 3.2rem;
+  align-self: center;
+
+  .book--success & {
+    margin-top: 5.6rem;
+  }
+
+  @include media.breakpoint(mobile) {
+    padding: 0.8rem 4.7rem;
+    margin-top: 2.4rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    border-radius: 2rem;
+    background: #b9864b;
+    border: none;
+
+    .book--success & {
+      margin-top: 2.4rem;
+    }
+  }
+}
+
+.book__form-select {
+  position: relative;
+}
+
+.book__form-select-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  width: 100%;
+  height: 4rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  border-radius: 2rem;
+  background: #fff;
+  color: rgba(#212838, 0.5);
+  padding-right: 1rem;
+  gap: 2rem;
+
+  @include media.breakpoint(mobile) {
+    height: 3.2rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: rgba(#212838, 0.5);
+    transition: transform 0.2s;
+  }
+
+  .choice-selected & {
+    color: #212838;
+  }
+
+  .book__form-select.active & {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.book__back-btn {
+  margin-left: auto;
+  width: 4.8rem;
+  height: 4.8rem;
+  margin-bottom: 0.2rem;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: white;
+    transition: fill 0.2s;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      svg {
+        fill: #b9864b;
+      }
+    }
+  }
+
+  @include media.breakpoint(mobile) {
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-bottom: 0.6rem;
+    margin-right: -1rem;
+  }
+}
+.book__form-select-btn-text {
+  width: 30%;
+  flex-grow: 1;
+  padding: 0 2rem;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book__form-select-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  padding-top: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 15;
+
+  .book__form-select.active & {
+    opacity: 1;
+    visibility: inherit;
+  }
+}
+
+.book__form-select-dropdown-inner {
+  border-radius: 0 0 2rem 2rem;
+  background: #fff;
+  box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.book__form-select-options-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.book__form-select-option {
+  user-select: none;
+  display: block;
+}
+
+.book__form-select-option-input {
+  display: none;
+}
+
+.book__form-select-option-text {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  padding: 0.7rem 2rem;
+  color: #212838;
+  display: block;
+  cursor: pointer;
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    padding: 0.6rem 2rem;
+  }
+
+  .book__form-select-option-input:checked ~ & {
+    background: #b9864b;
+    color: white;
+    cursor: default;
+  }
+}
+
+.book__form-field-input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea.book__form-field-input {
+  box-sizing: content-box;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  height: 7lh;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  width: auto;
+  display: block;
+  align-self: stretch;
+
+  @include media.breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+  }
+}
+
+.book__form-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  background: #fff;
+  height: 4rem;
+
+  @include media.breakpoint(mobile) {
+    height: 3.2rem;
+  }
+}
+
+.book__form-counter-btn {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: rgba(#212838, 0.5);
+  transition: color 0.2s;
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:not([disabled]):hover {
+      color: #212838;
+    }
+  }
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
+
+.book__form-counter-input {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: #212838;
+  text-align: center;
+  width: 5rem;
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
+
+.book__form-datepicker {
+  position: relative;
+
+  &.active {
+    .book__form-datepicker-label {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .book__form-datepicker-label svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.book__form-datepicker-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  padding-top: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 15;
+
+  .book__form-datepicker.active & {
+    opacity: 1;
+    visibility: inherit;
+  }
+}
+
+.book__form-datepicker-dropdown-inner {
+  border-radius: 0 0 2rem 2rem;
+  background: #fff;
+  box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .air-datepicker {
+    --adp-font-family: var(--museo);
+    --adp-width: 100%;
+    --adp-border-color: transparent;
+    --adp-border-color-inner: #efefef;
+    --adp-border-radius: 0;
+    --adp-color: black;
+    --adp-cell-background-color-selected: #a47853;
+    --adp-color-current-date: #a47853;
+    --adp-color-other-month: rgba(0, 0, 0, 0.4);
+    --adp-day-name-color: black;
+    --adp-border-color-inner: transparent;
+    --adp-nav-arrow-color: black;
+    --adp-nav-color-secondary: black;
+    --adp-font-size: 16px;
+    --adp-border-color-inline: transparent;
+    --adp-padding: 0;
+    --adp-day-name-color-hover: #a47853;
+    --adp-cell-background-color-selected-hover: #825530;
+    --adp-day-cell-height: auto;
+    --adp-nav-height: 30px;
+    --adp-nav-action-size: 18px;
+    // --adp-background-color-hover: transparent;
+  }
+
+  .air-datepicker-body--day-names {
+    margin: 0;
+  }
+
+  .air-datepicker-body--day-name {
+    aspect-ratio: 1 / 1;
+  }
+
+  .air-datepicker-body--day-name {
+    font-size: 16px;
+    text-transform: none;
+  }
+
+  .air-datepicker-cell.-day- {
+    aspect-ratio: 1 / 1;
+  }
+  .air-datepicker-nav--action {
+    margin: 0 4px;
+  }
+
+  .air-datepicker-nav--action path {
+    stroke: none;
+    stroke-width: 0;
+    fill: currentColor;
+  }
+
+  .air-datepicker-nav--action svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  .air-datepicker-nav--action:hover {
+    background-color: transparent;
+    svg path {
+      fill: #a47853;
+    }
+  }
+
+  .air-datepicker-nav--title:hover {
+    background-color: transparent;
+  }
+
+  .air-datepicker-nav--action.-disabled- {
+    visibility: inherit;
+
+    svg path {
+      fill: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.book__form-datepicker-calendar {
+  width: 100%;
+  margin: 16px auto;
+  max-width: 268px;
+  margin-top: 0;
+}
+
+.book__form-datepicker-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  border-radius: 2rem;
+  background: #fff;
+  padding-right: 1rem;
+  gap: 2rem;
+  cursor: pointer;
+
+  svg {
+    flex-shrink: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: rgba(#212838, 0.5);
+    transition: transform 0.2s;
+  }
+}
+
+.book__form-datepicker-input {
+  height: 4rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  padding: 0 2rem;
+  color: #212838;
+  width: 30%;
+  flex-grow: 1;
+  &::placeholder {
+    color: rgba(#212838, 0.5);
+  }
+
+  @include media.breakpoint(mobile) {
+    height: 3.2rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
+
+.book__form-select-wrapper {
+  position: relative;
+}
+
+.book__form-datepicker-wrapper {
+  position: relative;
+}

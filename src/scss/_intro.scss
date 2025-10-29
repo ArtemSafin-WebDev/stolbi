@@ -1,0 +1,44 @@
+@use "media";
+@use "utils";
+
+.intro {
+  @include utils.blockWrapper;
+  position: relative;
+  isolation: isolate;
+}
+
+.intro__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.intro__bg-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro__content {
+  @include utils.blockContent;
+  display: grid;
+  place-items: center;
+  min-height: min(100vh, 102.4rem);
+  min-height: min(100svh, 102.4rem);
+
+  @include media.breakpoint(mobile) {
+    min-height: 53.4rem;
+  }
+}
+
+.intro__logo {
+  width: 43.4rem;
+  height: auto;
+
+  @include media.breakpoint(mobile) {
+    width: 24.1rem;
+  }
+}

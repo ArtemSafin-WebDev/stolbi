@@ -1,0 +1,47 @@
+@use "media";
+@use "utils";
+
+.map {
+  display: block;
+}
+
+.map__content {
+  display: block;
+}
+
+.map__wrapper {
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 44.4%;
+
+    @include media.breakpoint(mobile) {
+      padding-bottom: 150%;
+    }
+  }
+}
+
+.map__element {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map__marker {
+  width: 8rem;
+
+  transform: translateX(-50%) translateY(-100%);
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @include media.breakpoint(mobile) {
+    width: 6rem;
+  }
+}

@@ -1,0 +1,205 @@
+<section class="book">
+    <div class="book__content">
+        <h2 class="book__heading">
+            Забронировать
+        </h2>
+        <form action="/" method="POST" class="book__form">
+            <div class="book__form-fields">
+                <div class="book__form-field book__form-field--fullwidth">
+                    <div class="book__form-field-label">
+                        Дом
+                    </div>
+                    <div class="book__form-select js-select" data-placeholder="Выбрать дом" data-required-select>
+                        <div class="book__form-select-wrapper">
+                            <button class="book__form-select-btn" type="button">
+                                <span class="book__form-select-btn-text js-btn-text">
+                                    Выбрать дом
+                                </span>
+                                <svg width="24" height="24" aria-hidden="true">
+                                    <use xlink:href="#select-arrow"></use>
+                                </svg>
+                            </button>
+                            <div class="book__form-select-dropdown">
+                                <div class="book__form-select-dropdown-inner">
+                                    <ul class="book__form-select-options-list">
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="house" class="book__form-select-option-input"
+                                                    value="Особняк">
+                                                <span class="book__form-select-option-text">
+                                                    Особняк
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="house" class="book__form-select-option-input"
+                                                    value="Вилла">
+                                                <span class="book__form-select-option-text">
+                                                    Вилла
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="house" class="book__form-select-option-input"
+                                                    value="Изба">
+                                                <span class="book__form-select-option-text">
+                                                    Изба
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="house" class="book__form-select-option-input"
+                                                    value="Усадьба">
+                                                <span class="book__form-select-option-text">
+                                                    Усадьба
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="house" class="book__form-select-option-input"
+                                                    value="Шале">
+                                                <span class="book__form-select-option-text">
+                                                    Шале
+                                                </span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="book__form-field">
+                    <div class="book__form-field-label">
+                        Дата
+                    </div>
+                    <div class="book__form-field-input-wrapper">
+                        <div class="book__form-datepicker js-datepicker" id="datepicker-error">
+                            <div class="book__form-datepicker-wrapper">
+                                <label class="book__form-datepicker-label">
+                                    <input type="text" class="book__form-datepicker-input" name="date"
+                                        placeholder="Выбрать дату" readonly required
+                                        data-error-container="#datepicker-error">
+                                    <svg width="24" height="24" aria-hidden="true">
+                                        <use xlink:href="#select-arrow"></use>
+                                    </svg>
+                                </label>
+                                <div class="book__form-datepicker-dropdown">
+                                    <div class="book__form-datepicker-dropdown-inner">
+                                        <div class="book__form-datepicker-calendar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="book__form-field">
+                    <div class="book__form-field-label">
+                        Период
+                    </div>
+                    <div class="book__form-select js-select" data-placeholder="Выбрать период" data-required-select>
+                        <div class="book__form-select-wrapper">
+                            <button class="book__form-select-btn" type="button">
+                                <span class="book__form-select-btn-text js-btn-text">
+
+                                </span>
+                                <svg width="24" height="24" aria-hidden="true">
+                                    <use xlink:href="#select-arrow"></use>
+                                </svg>
+                            </button>
+                            <div class="book__form-select-dropdown">
+                                <div class="book__form-select-dropdown-inner">
+                                    <ul class="book__form-select-options-list">
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="period" class="book__form-select-option-input"
+                                                    value="День">
+                                                <span class="book__form-select-option-text">
+                                                    День
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="period" class="book__form-select-option-input"
+                                                    value="Два дня">
+                                                <span class="book__form-select-option-text">
+                                                    Два дня
+                                                </span>
+                                            </label>
+                                        </li>
+                                        <li class="book__form-select-options-list-item">
+                                            <label class="book__form-select-option">
+                                                <input type="radio" name="period" class="book__form-select-option-input"
+                                                    value="Три дня">
+                                                <span class="book__form-select-option-text">
+                                                    Три дня
+                                                </span>
+                                            </label>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="book__form-field book__form-field--fullwidth">
+                    <div class="book__form-field-label">
+                        Сколько гостей
+                    </div>
+                    <div class="book__form-counter js-counter">
+                        <button class="book__form-counter-btn js-minus-btn" type="button">
+                            -
+                        </button>
+                        <input type="number" class="book__form-counter-input" readonly="" name="counter" value="1">
+                        <button class="book__form-counter-btn js-plus-btn" type="button">
+                            +
+                        </button>
+                    </div>
+                </div>
+                <div class="book__form-field">
+                    <div class="book__form-field-label">
+                        Имя*
+                    </div>
+                    <div class="book__form-field-input-wrapper">
+                        <input type="text" class="book__form-field-input" name="name" placeholder="Ваше имя"
+                            required="">
+                    </div>
+                </div>
+                <div class="book__form-field">
+                    <div class="book__form-field-label">
+                        Контактный телефон*
+                    </div>
+                    <div class="book__form-field-input-wrapper">
+                        <input type="tel" class="book__form-field-input" name="phone" placeholder="+7 (000) 000-00-00"
+                            required="">
+                    </div>
+                </div>
+                <div class="book__form-field book__form-field--fullwidth">
+                    <div class="book__form-field-label">
+                        Комментарий
+                    </div>
+                    <div class="book__form-field-input-wrapper">
+                        <textarea name="comment" class="book__form-field-input"
+                            placeholder="Напишите ваши дополнительные пожелания"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="book__form-remark">
+                •&nbsp;&nbsp;Поля обязятельные для заполнения
+            </div>
+            <div class="book__form-policy">
+                Политика обработки данных и условия бронирования, обязательства которые могут занять три или 4 строки в
+                таком размере текста
+            </div>
+            <button class="book__form-submit" type="submit">
+                Отправить заявку
+            </button>
+        </form>
+    </div>
+</section>

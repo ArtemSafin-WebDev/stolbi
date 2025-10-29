@@ -1,0 +1,17 @@
+@use "media";
+
+:root {
+  --primary-color: #174133;
+  --text-color: white;
+  --bg-color: #261c1c;
+  --museo: "Museo Cyrillic", sans-serif;
+  --gilroy: "Gilroy", sans-serif;
+  --content-padding: 4rem;
+  --container-width: 112.8rem;
+  --header-height: 9.6rem;
+
+  @include media.breakpoint(mobile) {
+    --content-padding: 2rem;
+    --header-height: 5.4rem;
+  }
+}

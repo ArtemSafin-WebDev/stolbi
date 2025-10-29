@@ -1,0 +1,89 @@
+initMap();
+
+async function initMap() {
+  const mapElement = document.querySelector("#map");
+  if (!mapElement) return;
+  await ymaps3.ready;
+  const {
+    YMap,
+    YMapDefaultSchemeLayer,
+    YMapControls,
+    YMapMarker,
+    YMapDefaultFeaturesLayer,
+  } = ymaps3;
+  const { YMapZoomControl } = await ymaps3.import(
+    "@yandex/ymaps3-controls@0.0.1"
+  );
+  const lat = Number(mapElement.parentElement.getAttribute("data-lat"));
+  const lng = Number(mapElement.parentElement.getAttribute("data-lng"));
+
+  const themeUrl = mapElement.parentElement.getAttribute("data-theme-url");
+  const zoom = mapElement.parentElement.hasAttribute("data-zoom")
+    ? Number(mapElement.parentElement.getAttribute("data-zoom"))
+    : 14;
+  let theme = null;
+
+  try {
+    theme = await fetch(themeUrl).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  const map = new YMap(mapElement, {
+    location: {
+      center: [lng, lat],
+      zoom: zoom,
+    },
+    behaviors: ["drag", "pinchZoom"],
+  });
+
+  if (theme) {
+    map.addChild(
+      new YMapDefaultSchemeLayer({
+        customization: theme,
+      })
+    );
+  } else {
+    map.addChild(new YMapDefaultSchemeLayer());
+  }
+  map.addChild(new YMapDefaultFeaturesLayer({ zIndex: 1800 }));
+
+  const controls = new YMapControls({
+    position: "bottom right",
+    orientation: "vertical",
+  });
+  controls.addChild(
+    new YMapZoomControl({
+      easing: "linear",
+    })
+  );
+  map.addChild(controls);
+
+  const markerElement = document.createElement("div");
+  markerElement.className = "map__marker";
+  markerElement.innerHTML = `
+        <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 262.28 346.71">
+          <path
+              d="m131.14,43.76c-48.18,0-87.37,39.21-87.37,87.37s39.19,87.39,87.37,87.39,87.39-39.21,87.39-87.39-39.21-87.37-87.39-87.37h0Zm0,180.37c-51.28,0-93-41.71-93-93s41.72-93,93-93,93,41.72,93,93-41.71,93-93,93h0Z" fill="#b9864b" />
+          <path
+              d="m180.22,138.68c-4.64-.99-7.76.39-9.53,1.72-4.57,3.38-5.35,8.47-5.25,13.71.06,3.97-.4,11.71-4.39,17.29-4.87,6.82-9.07,12.7-26.49,14.02-.77.06-1.53.09-2.29.11-17.68-.1-26.04-11.39-29.92-20.59-1.61-3.85-2.43-7.99-2.43-12.29v-8.2c6.73-2.64,11.19-7.55,11.19-13.31s-4.45-10.66-11.19-13.29v-8.2c0-4.31.82-8.44,2.43-12.29,3.89-9.24,12.28-20.78,30.07-20.81.71.03,1.42.05,2.14.1,17.42,1.33,21.62,7.2,26.49,14.02,3.99,5.58,4.45,13.34,4.39,17.31-.09,5.24.68,10.32,5.25,13.71,1.78,1.33,4.9,2.7,9.53,1.7,5.95-1.7,8.48-5.93,9.04-9.95.48-3.4-.42-6.46-2.26-9.97-16.43-31.08-50.6-32.75-53.92-32.75h-.23c-17.51-.73-32.99,6.32-45.17,20.01-7.14,8.04-11.67,17.62-13.69,28.51-5.03,2.8-8.19,7.06-8.19,11.91s3.18,9.14,8.23,11.94c2.04,10.79,6.57,20.29,13.65,28.25,12.18,13.71,27.66,20.74,45.17,20.03h.23c3.32,0,37.49-1.67,53.92-32.75,1.84-3.51,2.74-6.57,2.26-9.98-.56-4-3.09-8.24-9.04-9.95Zm2.91-30.27c1.36,3.25,1.02,8.14-4.1,9.49-2.07.56-3.72.22-4.99-.71-.59-.43-1.08-1-1.48-1.64-2.02-3.17-1.42-6.04-1.51-9.5-.14-4.99-1.14-12.63-5.42-18.64-.54-.74-1.07-1.48-1.62-2.23,7.63,4.85,14.74,11.65,19.13,23.23Zm-94.67,12.98c9.24,0,17.05,4.47,17.05,9.75s-7.8,9.77-17.05,9.77-17.05-4.47-17.05-9.77,7.8-9.75,17.05-9.75Zm3.43-26.92c3.63-4.08,7.58-7.48,11.82-10.2-3.11,3.8-5.19,7.76-6.52,10.91-1.92,4.54-2.89,9.41-2.89,14.46v6.65c-1.86-.33-3.81-.52-5.84-.52-2.92,0-5.68.37-8.22,1.02,2.11-8.46,5.98-15.95,11.65-22.34Zm0,73.14c-5.62-6.34-9.48-13.74-11.6-22.11,2.53.64,5.27,1.01,8.17,1.01,2.03,0,3.98-.19,5.84-.52v6.65c0,5.05.97,9.92,2.89,14.46,1.3,3.1,3.34,6.92,6.35,10.59-4.17-2.7-8.07-6.07-11.65-10.1Zm91.24-13.95c-4.39,11.59-11.5,18.39-19.13,23.24.56-.74,1.08-1.5,1.62-2.24,4.28-6,5.29-13.65,5.42-18.62.09-3.46-.51-6.35,1.51-9.52.4-.62.9-1.19,1.48-1.62,1.27-.94,2.92-1.27,4.99-.73,5.12,1.34,5.46,6.26,4.1,9.49Z" fill="#b9864b" />
+          <path
+              d="m131.18,0C60.84-.02,2.57,56.14.08,126.43c-.48,13.57,1.13,26.71,4.5,39.12,1.41,5.17,3.12,10.22,5.13,15.11.37.91.75,1.82,1.15,2.72,8.8,20.61,42.98,96.19,113.95,160.89,1.73,1.58,3.99,2.44,6.33,2.44h0c2.34,0,4.61-.86,6.33-2.44,70.71-64.46,104.91-139.74,113.85-160.66.05-.11.09-.21.13-.31.18-.41.34-.79.5-1.16.23-.54.43-1.04.62-1.48,6.25-15.29,9.7-32.01,9.7-49.52C262.28,58.85,203.49.02,131.18,0Zm-.04,232.94c-56.13,0-101.81-45.66-101.81-101.81S75.01,29.33,131.14,29.33s101.81,45.68,101.81,101.81-45.66,101.81-101.81,101.81Z" fill="#b9864b" />
+        </svg>
+    `;
+
+  const marker = new YMapMarker(
+    {
+      coordinates: [lng, lat],
+      draggable: false,
+      mapFollowsOnDrag: false,
+    },
+    markerElement
+  );
+  map.addChild(marker);
+}

@@ -1,0 +1,225 @@
+@use "media";
+@use "utils";
+
+.page-header {
+  @include utils.blockWrapper;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 85;
+}
+
+.page-header__content {
+  @include utils.blockContent;
+  height: var(--header-height, auto);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+
+  @include media.breakpoint(mobile) {
+    margin: 0 -1rem;
+  }
+}
+
+.page-header__logo {
+  flex-shrink: 0;
+  width: 16rem;
+
+  @include media.breakpoint(mobile) {
+    width: 16rem;
+  }
+}
+
+.page-header__logo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.page-header__overlay {
+  mix-blend-mode: multiply;
+  background: rgba(45, 65, 50, 0.85);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 80;
+  height: var(--header-height, auto);
+}
+
+.page-header__menu {
+  display: contents;
+  @include media.breakpoint(mobile) {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    padding: 0 3.8rem;
+    padding-top: 6.6rem;
+    padding-bottom: 6rem;
+    background: rgba(45, 65, 50, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    gap: 4rem;
+    max-width: 100%;
+    overscroll-behavior-y: contain;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: opacity 0.4s, visibility 0s linear 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    .menu-open & {
+      opacity: 1;
+      visibility: inherit;
+      transition: opacity 0.4s, visibility 0.4s;
+    }
+  }
+}
+
+.page-header__callback-link {
+  display: inline-grid;
+  place-items: center;
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  border-radius: 2rem;
+  border: 1px solid #174133;
+  background: #174133;
+  color: white;
+  padding: 0.8rem 2.4rem;
+  flex-shrink: 0;
+  &:link,
+  &:visited {
+    color: white;
+  }
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    padding: 0.8rem 2.4rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(162, 165, 148, 0.8);
+    background: rgba(23, 65, 51, 0.2);
+    align-self: flex-start;
+  }
+}
+
+.page-header__nav-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  row-gap: 1.2rem;
+
+  @include media.breakpoint(mobile) {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+}
+
+.page-header__nav-link {
+  display: block;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: rgba(white, 0.6);
+  &:link,
+  &:visited {
+    color: rgba(white, 0.6);
+  }
+
+  &.active {
+    color: white;
+    cursor: default;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: white;
+    }
+  }
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: white;
+
+    &:link,
+    &:visited {
+      color: white;
+    }
+  }
+}
+
+.page-header__burger {
+  display: none;
+
+  @include media.breakpoint(mobile) {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+}
+
+.page-header__burger-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  justify-content: center;
+  & > span {
+    background-color: #fff;
+    width: 1.8rem;
+    height: 0.2rem;
+    border-radius: 0.4rem;
+    transition: transform 0.2s, opacity 0.2s, width 0.2s;
+
+    &:nth-child(3) {
+      width: 1.2rem;
+    }
+  }
+
+  .menu-open & {
+    & > span {
+      &:nth-child(1) {
+        transform: translateY(0.5rem) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-0.5rem) rotate(-45deg);
+        width: 1.8rem;
+      }
+    }
+  }
+}
+
+.page-header__menu-contacts {
+  display: none;
+
+  @include media.breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    color: #a2a594;
+  }
+}

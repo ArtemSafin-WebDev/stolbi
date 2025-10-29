@@ -1,0 +1,98 @@
+@use "media";
+@use "utils";
+
+.not-found {
+  @include utils.blockWrapper;
+  padding-top: 15.6rem;
+  margin-bottom: 10rem;
+  background-color: #261c1c;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 4rem;
+    padding-top: 8rem;
+  }
+}
+
+.not-found__content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.not-found__code {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+
+  @include media.breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
+
+.not-found__heading {
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.072rem;
+  margin-top: 3rem;
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.048rem;
+    margin-top: 3rem;
+  }
+}
+
+.not-found__text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin-top: 4rem;
+  max-width: 48rem;
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    margin-top: 3rem;
+  }
+}
+
+.not-found__link {
+  align-self: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  color: white;
+  padding: 1.6rem 4.7rem;
+  border-radius: 3rem;
+  border: 1px solid rgba(102, 49, 57, 0.8);
+  background: #b9864b;
+  display: block;
+  text-align: center;
+  margin-top: 6rem;
+  &:link,
+  &:visited {
+    color: white;
+  }
+
+  @include media.breakpoint(mobile) {
+    margin-top: 4rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    padding: 0.8rem 4.5rem;
+  }
+}
