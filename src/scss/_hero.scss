@@ -1,0 +1,103 @@
+@use "media";
+@use "utils";
+
+.hero {
+  @include utils.blockWrapper;
+  margin-bottom: 10rem;
+  position: relative;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 4rem;
+    &--hide-on-mobile {
+      margin-bottom: 3.2rem;
+    }
+  }
+}
+
+.hero__content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+  min-height: min(100vh, 102.4rem);
+  color: white;
+  padding-bottom: 13rem;
+  padding-top: 12rem;
+  gap: 2rem;
+
+  @include media.breakpoint(mobile) {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    min-height: 48rem;
+    .hero--hide-on-mobile & {
+      min-height: auto;
+      padding: 0 1.4rem;
+      padding-top: 8rem;
+    }
+  }
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  @include media.breakpoint(mobile) {
+    .hero--hide-on-mobile & {
+      display: none;
+    }
+  }
+}
+
+.hero__bg-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__main-heading {
+  font-size: 4.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+
+  @include media.breakpoint(mobile) {
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.072rem;
+  }
+}
+
+.hero__text-content {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  @include media.breakpoint(mobile) {
+    .hero--hide-on-mobile & {
+      display: none;
+    }
+  }
+}
+
+.hero__text {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  max-width: 114rem;
+
+  @include media.breakpoint(mobile) {
+    max-width: none;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+  }
+}

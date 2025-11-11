@@ -6,6 +6,7 @@ import counter from "./counter";
 import datepicker from "./datepicker";
 import gallery from "./gallery";
 import book from "./book";
+import eventInfo from "./eventInfo";
 
 document.addEventListener("DOMContentLoaded", () => {
   menu();
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   datepicker();
   gallery();
   book();
+  eventInfo();
 });
 
 window.addEventListener("load", () => {
