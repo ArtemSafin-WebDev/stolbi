@@ -1,0 +1,466 @@
+@use "media";
+@use "utils";
+
+.house {
+  display: flex;
+  flex-direction: column;
+}
+
+.house__intro {
+  @include utils.blockWrapper;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 10rem;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 4rem;
+  }
+}
+
+.house__intro-content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 7rem;
+  padding-top: 15rem;
+  justify-content: flex-end;
+  min-height: min(100vh, 102.4rem);
+
+  @include media.breakpoint(mobile) {
+    min-height: 53.4rem;
+    padding-bottom: 3.2rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    padding-top: 10rem;
+  }
+}
+
+.house__intro-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.house__intro-bg-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.house__intro-main-heading {
+  font-size: 4.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  margin-bottom: 0.8rem;
+
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.048rem;
+  }
+}
+
+.house__intro-text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin-bottom: 1.8rem;
+  max-width: 52rem;
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    margin-bottom: 0.8rem;
+  }
+}
+
+.house__intro-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  max-width: 50rem;
+  @include media.breakpoint(mobile) {
+    max-width: none;
+  }
+}
+
+.house__intro-tag {
+  text-align: center;
+  display: block;
+  flex-shrink: 0;
+  padding: 0.3rem 2rem;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  border-radius: 2rem;
+  background: #a47853;
+  color: white;
+
+  @include media.breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    padding: 0.3rem 2rem;
+  }
+}
+
+.house__conditions {
+  @include utils.blockWrapper;
+  margin-bottom: 10rem;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 4rem;
+  }
+}
+
+.house__conditions-content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+
+  @include media.breakpoint(mobile) {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}
+
+.house__conditions-heading {
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.072rem;
+  margin-bottom: 2.4rem;
+
+  @include media.breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.04rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+.house__conditions-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 2.4rem;
+  @include media.breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.house__conditions-large-text {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  p {
+    margin-top: 1.6rem;
+    @include media.breakpoint(mobile) {
+      margin: 0;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.house__conditions-small-text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  p {
+    margin-top: 1.2rem;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.house__features {
+  @include utils.blockWrapper;
+  margin-bottom: 4rem;
+  @include media.breakpoint(mobile) {
+    margin-bottom: 3.2rem;
+  }
+}
+
+.house__features-content {
+  @include utils.blockContent;
+  @include media.breakpoint(mobile) {
+    padding: 0 2.4rem;
+  }
+}
+
+.house__features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  @include media.breakpoint(mobile) {
+    gap: 1.6rem;
+  }
+}
+
+.house__features-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 4rem;
+
+  @include media.breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.house__features-card-text-content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  @include media.breakpoint(mobile) {
+    padding: 0;
+    display: contents;
+  }
+}
+
+.house__features-card-title {
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.072rem;
+  margin-bottom: 2.4rem;
+  @include media.breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.04rem;
+    margin: 0;
+  }
+}
+
+.house__features-card-text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  margin-bottom: 2.4rem;
+  @include media.breakpoint(mobile) {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    margin: 0;
+
+    .house__features-card-text ~ & {
+      order: 20;
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    margin-top: 2.4rem;
+
+    @include media.breakpoint(mobile) {
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      margin-top: 1.6rem;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  p {
+    margin-top: 1.6rem;
+    @include media.breakpoint(mobile) {
+      margin-top: 0.4rem;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.house__features-card-image-container {
+  position: relative;
+  aspect-ratio: 1 / 1;
+
+  @include media.breakpoint(mobile) {
+    aspect-ratio: 252 / 184;
+  }
+
+  .house__features-list-item:nth-child(even) & {
+    order: -10;
+  }
+}
+
+.house__features-card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.house__features-card-divider {
+  align-self: center;
+  width: 35rem;
+  height: 1px;
+  position: relative;
+  max-width: 100%;
+  background-color: #e5e5e5;
+  margin-top: 5rem;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e5e5e5;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+  }
+
+  @include media.breakpoint(mobile) {
+    display: none;
+  }
+}
+
+.house__services {
+  @include utils.blockWrapper;
+  margin-bottom: 10rem;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 4rem;
+  }
+}
+
+.house__services-content {
+  @include utils.blockContent;
+  @include media.breakpoint(mobile) {
+    padding: 0 2.4rem;
+  }
+}
+
+.house__services-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 4rem;
+  @include media.breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+}
+
+.house__services-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  @include media.breakpoint(mobile) {
+    gap: 1.6rem;
+    padding: 0;
+  }
+}
+
+.house__services-card-title {
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.072rem;
+  @include media.breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.04rem;
+  }
+}
+
+.house__services-card-text {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
+
+.house__services-card-link {
+  display: block;
+  text-align: center;
+  align-self: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  padding: 1.6rem 4rem;
+  border-radius: 3rem;
+  background: #b9864b;
+  color: white;
+  &:link,
+  &:visited {
+    color: white;
+  }
+
+  @include media.breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    padding: 0.8rem 2.4rem;
+  }
+}

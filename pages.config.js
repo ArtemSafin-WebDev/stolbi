@@ -5,6 +5,7 @@ import notFound from "./pages-data/not-found";
 import success from "./pages-data/success";
 import actual from "./pages-data/actual";
 import event from "./pages-data/event";
+import house from "./pages-data/house";
 
 const pagesConfig = {
   ...home,
@@ -14,6 +15,7 @@ const pagesConfig = {
   ...contacts,
   ...actual,
   ...event,
+  ...house,
 };
 
 export default pagesConfig;
