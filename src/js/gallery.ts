@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, Controller, EffectFade } from "swiper/modules";
+import { Navigation, Controller, EffectFade, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -20,7 +20,11 @@ export default function gallery() {
     const bgInstance = new Swiper(bgContainer, {
       //   effect: "fade",
       speed: 600,
-      modules: [Navigation, Controller, EffectFade],
+      modules: [Navigation, Controller, EffectFade, Autoplay],
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
       navigation: {
         prevEl: element.querySelector<HTMLButtonElement>(
           ".gallery__arrow--prev"
