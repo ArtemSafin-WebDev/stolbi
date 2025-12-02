@@ -19,7 +19,7 @@
   gap: 1.6rem;
 
   @include media.breakpoint(mobile) {
-    margin: 0 -1rem;
+
   }
 }
 
@@ -95,6 +95,7 @@
   color: white;
   padding: 0.8rem 2.4rem;
   flex-shrink: 0;
+
   &:link,
   &:visited {
     color: white;
@@ -134,6 +135,7 @@
   font-weight: 500;
   line-height: 140%;
   color: rgba(white, 0.6);
+
   &:link,
   &:visited {
     color: rgba(white, 0.6);
@@ -181,6 +183,7 @@
   flex-direction: column;
   gap: 0.3rem;
   justify-content: center;
+
   & > span {
     background-color: #fff;
     width: 1.8rem;
@@ -198,9 +201,11 @@
       &:nth-child(1) {
         transform: translateY(0.5rem) rotate(45deg);
       }
+
       &:nth-child(2) {
         opacity: 0;
       }
+
       &:nth-child(3) {
         transform: translateY(-0.5rem) rotate(-45deg);
         width: 1.8rem;

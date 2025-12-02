@@ -1,20 +1,17 @@
 @use "media";
 @use "utils";
 
-.hero {
+.kitchen-intro {
   @include utils.blockWrapper;
   margin-bottom: 10rem;
   position: relative;
 
   @include media.breakpoint(mobile) {
-    margin-bottom: 4rem;
-    &--hide-on-mobile {
-      margin-bottom: 3.2rem;
-    }
+    margin-bottom: 3.5rem;
   }
 }
 
-.hero__content {
+.kitchen-intro__content {
   @include utils.blockContent;
   display: flex;
   flex-direction: column;
@@ -25,31 +22,26 @@
   gap: 2rem;
 
   @include media.breakpoint(mobile) {
+    all: revert;
+    @include utils.blockContent;
+    box-sizing: border-box;
     padding-top: 8rem;
-    padding-bottom: 4rem;
-    padding-left: 1.4rem;
-    padding-right: 1.4rem;
-    min-height: 48rem;
-    .hero--hide-on-mobile & {
-      min-height: auto;
-      padding: 0 1.4rem;
-      padding-top: 8rem;
-    }
+    padding-inline: 2.4rem;
+    display: flex;
+    flex-direction: column;
   }
 }
 
-.hero__bg {
+.kitchen-intro__bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   @include media.breakpoint(mobile) {
-    .hero--hide-on-mobile & {
-      display: none;
-    }
+    display: none;
   }
 }
 
-.hero__bg-image {
+.kitchen-intro__bg-image {
   position: absolute;
   left: 0;
   top: 0;
@@ -58,7 +50,7 @@
   object-fit: cover;
 }
 
-.hero__main-heading {
+.kitchen-intro__main-heading {
   font-size: 4.8rem;
   font-style: normal;
   font-weight: 700;
@@ -70,41 +62,75 @@
     font-weight: 700;
     line-height: 100%;
     letter-spacing: -0.072rem;
+    margin-bottom: 3.2rem;
   }
 }
 
-.hero__text-content {
+.kitchen-intro__text-content {
   margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
 
   @include media.breakpoint(mobile) {
-    .hero--hide-on-mobile & {
-      display: none;
-    }
+    gap: 1.6rem;
+    margin: 0;
   }
 }
 
-.hero__heading {
+.kitchen-intro__heading {
   font-size: 4.8rem;
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+
+  @include media.breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.04rem;
+  }
 }
 
-.hero__text {
+.kitchen-intro__text {
   font-size: 2.4rem;
   font-style: normal;
   font-weight: 500;
   line-height: 140%;
   max-width: 114rem;
+  text-wrap: balance;
 
   @include media.breakpoint(mobile) {
     max-width: none;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 130%;
+    line-height: 140%;
+  }
+}
+
+.kitchen-intro__divider {
+  display: none;
+  @include media.breakpoint(mobile) {
+    position: relative;
+    display: block;
+    margin-top: 3.5rem;
+    align-self: center;
+    width: 13rem;
+    max-width: 100%;
+    height: 1px;
+    background-color: #E5E5E5;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: .8rem;
+      height: .8rem;
+      border-radius: 50%;
+      background-color: #E5E5E5;
+    }
   }
 }

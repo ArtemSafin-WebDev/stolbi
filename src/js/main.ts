@@ -7,17 +7,19 @@ import datepicker from "./datepicker";
 import gallery from "./gallery";
 import book from "./book";
 import eventInfo from "./eventInfo";
+import accordions from "./accordions.ts";
 
 document.addEventListener("DOMContentLoaded", () => {
-  menu();
-  selects();
-  counter();
-  datepicker();
-  gallery();
-  book();
-  eventInfo();
+    menu();
+    selects();
+    counter();
+    datepicker();
+    gallery();
+    book();
+    eventInfo();
+    accordions()
 });
 
 window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
+    document.body.classList.add("loaded");
 });

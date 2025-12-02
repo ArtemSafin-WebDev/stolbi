@@ -6,16 +6,18 @@ import success from "./pages-data/success";
 import actual from "./pages-data/actual";
 import event from "./pages-data/event";
 import house from "./pages-data/house";
+import kitchen from "./pages-data/kitchen.js";
 
 const pagesConfig = {
-  ...home,
-  ...houses,
-  ...success,
-  ...notFound,
-  ...contacts,
-  ...actual,
-  ...event,
-  ...house,
+    ...home,
+    ...houses,
+    ...success,
+    ...notFound,
+    ...contacts,
+    ...actual,
+    ...event,
+    ...house,
+    ...kitchen
 };
 
 export default pagesConfig;
