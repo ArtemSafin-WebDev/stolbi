@@ -1,0 +1,145 @@
+@use "media";
+@use "utils";
+
+.about-houses {
+  @include utils.blockWrapper;
+  margin-bottom: 10rem;
+
+  @include media.breakpoint(mobile) {
+    margin-bottom: 4rem;
+  }
+}
+
+.about-houses__content {
+  @include utils.blockContent;
+}
+
+.about-houses__block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.about-houses__block-bg {
+  width: 100vw;
+  aspect-ratio: 1920 / 928;
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+
+  @include media.breakpoint(mobile) {
+    aspect-ratio: 320 / 480;
+  }
+
+  .swiper {
+    margin: 0;
+    width: auto;
+    flex-grow: 1;
+  }
+
+  .swiper-wrapper {
+    flex-grow: 1;
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    box-sizing: border-box;
+  }
+}
+
+.about-houses__block-bg-card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
+.about-houses__block-bg-card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-houses__block-title {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  text-align: center;
+  margin-bottom: 9rem;
+  align-self: flex-end;
+  justify-self: center;
+  font-size: 4.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  z-index: 5;
+
+  @include media.breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.048rem;
+    margin-bottom: 6rem;
+  }
+}
+
+.about-houses__block-arrows {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  align-self: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.about-houses__block-arrow {
+  width: 7.8rem;
+  height: 7.8rem;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+  pointer-events: all;
+  @include media.breakpoint(mobile) {
+    width: 3.9rem;
+    height: 3.9rem;
+  }
+
+  &--prev {
+    margin-left: -7.8rem;
+    @include media.breakpoint(mobile) {
+      margin: 0;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &--next {
+    margin-right: -7.8rem;
+    @include media.breakpoint(mobile) {
+      margin: 0;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: white;
+    transition: fill 0.2s;
+  }
+}

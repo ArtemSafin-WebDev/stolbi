@@ -7,6 +7,7 @@ import actual from "./pages-data/actual";
 import event from "./pages-data/event";
 import house from "./pages-data/house";
 import kitchen from "./pages-data/kitchen.js";
+import about from "./pages-data/about.js";
 
 const pagesConfig = {
     ...home,
@@ -17,7 +18,8 @@ const pagesConfig = {
     ...actual,
     ...event,
     ...house,
-    ...kitchen
+    ...kitchen,
+    ...about
 };
 
 export default pagesConfig;

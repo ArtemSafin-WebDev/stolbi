@@ -91,6 +91,10 @@
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
+  @include media.breakpoint(mobile) {
+    display: none;
+  }
+
 }
 
 .hero__text {

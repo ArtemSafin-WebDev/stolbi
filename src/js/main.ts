@@ -8,6 +8,7 @@ import gallery from "./gallery";
 import book from "./book";
 import eventInfo from "./eventInfo";
 import accordions from "./accordions.ts";
+import aboutHouses from "./aboutHouses.ts";
 
 document.addEventListener("DOMContentLoaded", () => {
     menu();
@@ -17,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     gallery();
     book();
     eventInfo();
-    accordions()
+    accordions();
+    aboutHouses();
 });
 
 window.addEventListener("load", () => {
