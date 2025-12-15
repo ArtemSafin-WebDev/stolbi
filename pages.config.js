@@ -8,6 +8,7 @@ import event from "./pages-data/event";
 import house from "./pages-data/house";
 import kitchen from "./pages-data/kitchen.js";
 import about from "./pages-data/about.js";
+import prices from "./pages-data/prices.js";
 
 const pagesConfig = {
     ...home,
@@ -19,7 +20,8 @@ const pagesConfig = {
     ...event,
     ...house,
     ...kitchen,
-    ...about
+    ...about,
+    ...prices
 };
 
 export default pagesConfig;
